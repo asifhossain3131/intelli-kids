@@ -5,7 +5,7 @@ const AddToys = () => {
     useTitle('Add Toys')
     return (
         <div>
-            
+        
         </div>
     );
 };
