@@ -8,7 +8,7 @@ const auth=getAuth(app)
 
 const AuthProvider = ({children}) => {
     // hooks
-    const [user,setUser]=useState(true)
+    const [user,setUser]=useState(null)
     const[loading,setLoading]=useState(true)
 
     // authentications functionalities
