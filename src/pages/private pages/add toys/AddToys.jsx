@@ -107,9 +107,9 @@ subCategory,
             <span className="label-text">Sub-Category: </span>
           </label>
    <div className='flex gap-4'>
-   <label className='flex items-center gap-2'><input type="radio" name="subCategory" value='Math' className="radio" checked /><span className="label-text">Math Toys</span> </label>
-   <label className='flex items-center gap-2'><input type="radio" name="subCategory" value='Science' className="radio" checked /><span className="label-text">Science Toys</span> </label>
-   <label className='flex items-center gap-2'><input type="radio" name="subCategory" value='Language' className="radio" checked /><span className="label-text">Language Toys</span> </label>
+   <label className='flex items-center gap-2'><input type="radio" name="subCategory" value='Math' className="radio" defaultChecked /><span className="label-text">Math Toys</span> </label>
+   <label className='flex items-center gap-2'><input type="radio" name="subCategory" value='Science' className="radio" defaultChecked /><span className="label-text">Science Toys</span> </label>
+   <label className='flex items-center gap-2'><input type="radio" name="subCategory" value='Language' className="radio" defaultChecked /><span className="label-text">Language Toys</span> </label>
    </div>
 
         </div>
