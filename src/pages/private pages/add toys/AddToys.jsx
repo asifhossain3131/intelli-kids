@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import useTitle from '../../../hooks/useTitle';
 import { AuthContext } from '../../../providers/AuthProvider';
+import { toast } from 'react-hot-toast';
 
 const AddToys = () => {
     useTitle('Add Toys')
@@ -29,7 +30,19 @@ toysDescription,
 toysQuantity,
 subCategory,
         }
-        console.log(toysInfo)
+
+        fetch('https://intelli-kidos-server.vercel.app/toys',{
+            method:'POST',
+            headers:{
+                'content-type':'application/json'
+            },
+            body:JSON.stringify(toysInfo)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            toast.success('Toy has been added successfully')
+            form.reset()
+        })
     }
     return (
         <div>
@@ -75,7 +88,7 @@ subCategory,
           <label className="label">
             <span className="label-text">Ratings</span>
           </label>
-          <input type="number" placeholder="Ratings" name='toysRatings' className="input input-bordered" required/>
+          <input type="text" placeholder="Ratings" name='toysRatings' className="input input-bordered" required/>
         </div>
         <div className="form-control">
           <label className="label">
