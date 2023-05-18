@@ -9,7 +9,9 @@ const AllToys = () => {
 
     useEffect(()=>{
        async function fetchData(){
-        const res=await fetch(`https://intelli-kidos-server.vercel.app/toys`)
+        const res=await fetch(`https://intelli-kidos-server.vercel.app/toys`,{
+          method:'GET'
+        })
         const data=await res.json()
         setToys(data)
        }

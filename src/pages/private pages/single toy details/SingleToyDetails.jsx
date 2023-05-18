@@ -2,6 +2,7 @@ import React from 'react';
 import { FaBackward } from 'react-icons/fa';
 import { Link, useLoaderData } from 'react-router-dom';
 import DetailsCard from './DetailsCard';
+import DetailsTab from './DetailsTab';
 
 const SingleToyDetails = () => {
     const toy=useLoaderData()
@@ -16,6 +17,7 @@ const SingleToyDetails = () => {
             <Link className='text-blue-500'>Toy Details</Link>
          </div>
          <DetailsCard toy={toy}></DetailsCard>
+         <DetailsTab toy={toy}></DetailsTab>
         </>
     );
 };
