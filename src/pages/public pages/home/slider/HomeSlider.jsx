@@ -1,22 +1,39 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-
-// import required modules
 import { Autoplay, Pagination, Navigation } from "swiper";
+
+
 const HomeSlider = () => {
+    const [datas,setDatas]=useState([])
+    useEffect(() => {
+        AOS.init({
+            duration: 800, // Animation duration in milliseconds
+            offset: 200, // Offset (in pixels) from the original trigger point
+            easing: 'ease-in-out', // Easing function for the animation
+            delay: 100, // Delay (in milliseconds) before the animation starts
+          });
+      }, []);
+
+      useEffect(()=>{
+        fetch('https://intelli-kidos-server.vercel.app/bannerInfo')
+        .then(res=>res.json())
+        .then(data=>{
+            setDatas(data)
+        })
+      },[])
     return (
         <>
               <Swiper
         spaceBetween={30}
         centeredSlides={true}
         autoplay={{
-          delay: 2500,
+          delay: 5000,
           disableOnInteraction: false,
         }}
         pagination={{
@@ -26,23 +43,30 @@ const HomeSlider = () => {
         modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper"
       >
-        <SwiperSlide>
-           <div className="flex flex-row-reverse">
-           <img className="w-1/2" src="https://img.freepik.com/free-photo/cute-little-girl-holding-books-isolated-studio_1303-31021.jpg?size=626&ext=jpg&ga=GA1.1.663062170.1681230249&semt=sph" alt="" />
-           <div className="w-1/2 bg-[#F4F3F0]">
-            hhhs
-           </div>
-           </div>
-        </SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
-        <SwiperSlide>Slide 5</SwiperSlide>
-        <SwiperSlide>Slide 6</SwiperSlide>
-        <SwiperSlide>Slide 7</SwiperSlide>
-        <SwiperSlide>Slide 8</SwiperSlide>
-        <SwiperSlide>Slide 9</SwiperSlide>
+      {
+        datas.map(data=><SwiperSlide key={data._id}>
+        <div className="bg-black flex flex-row-reverse gap-4">
+            <img className="w-1/2 h-[600px]" src={data?.image} alt="" />
+       <div className="flex flex-col gap-4 justify-center p-4 w-1/2">
+       <div>
+            <div data-aos="fade-down"
+     data-aos-duration="3000" className="text-white lg:p-8">
+        <h1 className=" font-semibold text-4xl lg:text-6xl">{data?.title}</h1>
+     </div>
+            </div>
+
+            <div data-aos="fade-up"
+     data-aos-duration="3000" className="text-white lg:p-8 mx-auto">
+       <p className="font-semibold mb-8">{data?.description}</p>
+       <button className="btn bg-violet-500">{data?.buttonText}</button>
+     </div>
+       </div>
+        </div>
+
+        </SwiperSlide>)
+      }
       </Swiper>
+
         </>
     );
 };
