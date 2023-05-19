@@ -2,20 +2,46 @@ import React, { useContext, useEffect, useState } from 'react';
 import useTitle from '../../../hooks/useTitle';
 import { AuthContext } from '../../../providers/AuthProvider';
 import MyToysTableRow from './MyToysTableRow';
+import Swal from 'sweetalert2';
 
 const MyToys = () => {
     useTitle('My Toys')
     const{user}=useContext(AuthContext)
     const [myToys,setMyToys]=useState([])
+    const [sort,setSort]=useState(0)
 
     useEffect(()=>{
-        fetch(`https://intelli-kidos-server.vercel.app/mytoys?email=${user?.email}`)
+        fetch(`https://intelli-kidos-server.vercel.app/mytoys?email=${user?.email}&sort=${sort}`)
         .then(res=>res.json())
         .then(data=>setMyToys(data))
     },[])
 
     const handleDeleteToy=id=>{
-      
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+          }).then((result) => {
+            if (result.isConfirmed) {
+           fetch(`https://intelli-kidos-server.vercel.app/toys/${id}`)
+           .then(res=>res.json())
+           .then(data=>{
+            const remaining=myToys.filter(toy=>toy._id!==id)
+            setMyToys(remaining)
+            Swal.fire(
+                'Deleted!',
+                'Your toy has been deleted.',
+                'success'
+              )
+           })
+
+           
+            }
+          })
     }
 
     return (
