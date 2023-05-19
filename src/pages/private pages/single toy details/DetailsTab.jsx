@@ -7,7 +7,7 @@ const DetailsTab = ({toy}) => {
     const{sellerName,subCategory,toysDescription,sellerEmail}=toy
     return (
         <>
-             <Tabs className='w-9/12 mx-auto mt-8 lg:h-[400px] text-center p-4 bg-[#F4F3F0]'>
+             <Tabs className='w-9/12 mx-auto mt-8 mb-8 lg:h-[400px] text-center p-4 bg-[#F4F3F0]'>
     <TabList className='font-bold'>
       <Tab>Information</Tab>
       <Tab>Description</Tab>

@@ -1,11 +1,8 @@
 import React from 'react';
 import { FaFacebook, FaHeart, FaInstagram, FaPinterest, FaTwitter } from 'react-icons/fa';
-import ReactStars from "react-rating-stars-component";
-
 
 const DetailsCard = ({toy}) => {
     const{sellerName,subCategory,toysDescription,toysName,toysPhoto,toysPrice,toysQuantity,toysRatings}=toy
-    console.log(toy)
     return (
         <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col lg:flex-row">
@@ -36,7 +33,7 @@ const DetailsCard = ({toy}) => {
 </div>
 <div>
 <button className="btn rounded-full">Add To Cart</button>
-<button className="btn btn-link font-semibold text-xl text-black"><span className='me-2'>Add To Cart</span><FaHeart></FaHeart></button>
+<button className="btn btn-link font-semibold text-xl text-black"><span className='me-2'>Add To Wishlist</span><FaHeart></FaHeart></button>
 </div>
 
 <div className='flex items-center gap-4'>
