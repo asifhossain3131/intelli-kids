@@ -10,6 +10,7 @@ import MyToys from "../pages/private pages/my toys/MyToys";
 import PrivateRoute from "../private route/PrivateRoute";
 import AllToys from "../pages/public pages/all toys/AllToys";
 import SingleToyDetails from "../pages/private pages/single toy details/SingleToyDetails";
+import UpdateToy from "../pages/private pages/my toys/UpdateToy";
 
   const router=createBrowserRouter([
     {
@@ -36,6 +37,12 @@ element:<PrivateRoute><MyToys></MyToys></PrivateRoute>
 path:'/toy/:id',
 element:<PrivateRoute><SingleToyDetails></SingleToyDetails></PrivateRoute>,
 loader:({params})=>fetch(`https://intelli-kidos-server.vercel.app/toys/${params.id}`)
+            },
+            {
+path:'/updatetoy/:id',
+element:<UpdateToy></UpdateToy>,
+loader:({params})=>fetch(`https://intelli-kidos-server.vercel.app/toys/${params.id}`)
+
             },
             {
                 path:'/login',

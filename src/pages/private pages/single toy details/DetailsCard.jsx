@@ -2,7 +2,7 @@ import React from 'react';
 import { FaFacebook, FaHeart, FaInstagram, FaPinterest, FaTwitter } from 'react-icons/fa';
 
 const DetailsCard = ({toy}) => {
-    const{sellerName,subCategory,toysDescription,toysName,toysPhoto,toysPrice,toysQuantity,toysRatings}=toy
+    const{toysName,toysPhoto,toysPrice,toysQuantity,toysRatings}=toy
     return (
         <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col lg:flex-row">
