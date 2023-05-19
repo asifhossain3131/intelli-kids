@@ -33,10 +33,12 @@ const AuthProvider = ({children}) => {
     }
 
 const googleLogin=()=>{
+    setLoading(true)
     return signInWithPopup(auth,googleProvider)
 }
 
 const gitLogin=()=>{
+    setLoading(true)
     return signInWithPopup(auth,gitProvider)
 }
 

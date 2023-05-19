@@ -1,11 +1,17 @@
 import { data } from 'autoprefixer';
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigation } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import Spinner from '../../../components/Spinner';
 
 const UpdateToy = () => {
     const toy=useLoaderData()
+    const navigation=useNavigation()
     const{_id,toysName,toysPrice,toysQuantity,toysDescription}=toy
+if(navigation.state==='loading'){
+  return <Spinner></Spinner>
+}
+
     const handleToyUpdate=e=>{
         e.preventDefault()
         const form=e.target 
@@ -30,7 +36,7 @@ Swal.fire({
   }).then((result) => {
     /* Read more about isConfirmed, isDenied below */
     if (result.isConfirmed) {
-        fetch(`http://localhost:5000/toys/${_id}`,{
+        fetch(`https://intelli-kidos-server.vercel.app/toys/${_id}`,{
             method:'PUT',
             headers:{
                 'content-type':'application/json'

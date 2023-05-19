@@ -29,11 +29,12 @@ const MyToys = () => {
       .then((res) => res.json())
       .then((data) => {
             if(!data.error){
-                setMyToys(data)  
+                setMyToys(data) 
             }
             else{
                 navigate('/login')
             }
+
       });
   }, [sort,navigate]);
 

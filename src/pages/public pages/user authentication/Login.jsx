@@ -21,7 +21,7 @@ const Login = () => {
             googleLogin()
             .then(result=>{
                 setSuccess('Login with Google has been successful')
-                navigate(target)
+                navigate(target, {replace:true})
             })
             .catch(err=>{
                 setError(err.message)
@@ -32,7 +32,7 @@ const Login = () => {
             gitLogin()
             .then(result=>{
                 setSuccess('Login with GitHub has been successful')
-                navigate(target)
+                navigate(target, {replace:true})
             })
             .catch(err=>{
                 setError(err.message)
@@ -57,7 +57,6 @@ const Login = () => {
         .catch(err=>{
             setError(err.message)
         })
-
     }
     return (
         <div className="min-h-screen bg-base-200">
