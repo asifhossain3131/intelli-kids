@@ -3,22 +3,39 @@ import useTitle from "../../../hooks/useTitle";
 import { AuthContext } from "../../../providers/AuthProvider";
 import MyToysTableRow from "./MyToysTableRow";
 import Swal from "sweetalert2";
+import { useNavigate, useNavigation } from "react-router-dom";
+import Spinner from "../../../components/Spinner";
 
 const MyToys = () => {
   useTitle("My Toys");
   const { user } = useContext(AuthContext);
   const [myToys, setMyToys] = useState([]);
   const [sort, setSort] = useState(0);
+  const navigate=useNavigate()
+  const navigation=useNavigation()
+  if(navigation.state==='loading'){
+    return <Spinner></Spinner>
+  }
 
   useEffect(() => {
     fetch(
-      `https://intelli-kidos-server.vercel.app/mytoys?email=${user?.email}&sort=${sort}`
+      `https://intelli-kidos-server.vercel.app/mytoys?email=${user?.email}&sort=${sort}`,{
+        method:'GET',
+        headers:{
+            authorization:`bearer ${localStorage.getItem('toy-access-token')}`
+        }
+      }
     )
       .then((res) => res.json())
       .then((data) => {
-        setMyToys(data);
+            if(!data.error){
+                setMyToys(data)  
+            }
+            else{
+                navigate('/login')
+            }
       });
-  }, [sort]);
+  }, [sort,navigate]);
 
   const handleDeleteToy = (id) => {
     Swal.fire({

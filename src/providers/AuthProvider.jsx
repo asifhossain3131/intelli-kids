@@ -50,6 +50,22 @@ const gitLogin=()=>{
         const unsubscribe=onAuthStateChanged(auth,currentUser=>{
             setLoading(false)
             setUser(currentUser)
+            if(currentUser && currentUser.email){
+                const loggedUser={
+                    email:currentUser.email
+                }
+                fetch('https://intelli-kidos-server.vercel.app/authoriztion',{
+                    method:'POST',
+                    headers:{
+                        'content-type':'application/json'
+                    },
+                    body:JSON.stringify(loggedUser)
+                })
+                .then(res=>res.json())
+                .then(data=>{
+                    localStorage.setItem('toy-access-token',data.token)
+                })
+            }
         })
         return ()=>unsubscribe()
     },[])
@@ -63,7 +79,8 @@ profileUpdate,
 login,
 googleLogin,
 gitLogin,
-logOut
+logOut,
+setLoading
     }
     return (
         <AuthContext.Provider value={authInfo}>

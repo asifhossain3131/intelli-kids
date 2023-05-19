@@ -51,7 +51,7 @@ const Login = () => {
         login(email,password)
         .then(result=>{
             setSuccess('Login has been successful')
-            navigate(target,  { replace: true })
+            navigate(target, {replace:true})
             form.reset()
         })
         .catch(err=>{

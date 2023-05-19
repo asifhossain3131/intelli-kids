@@ -8,7 +8,7 @@ const Header = () => {
     const handleLogOut=()=>{
       logOut()
       .then(res=>{
-
+   localStorage.removeItem('toy-access-token')
       })
       .catch(err=>{
 
