@@ -1,11 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const ToyRow = ({toy, index}) => {
-   const{_id,sellerName,toysName,subCategory,toysPrice,toysQuantity,}=toy
+const ToyRow = ({toy}) => {
+   const{_id,sellerName,toysName,subCategory,toysPrice,toysQuantity,toysPhoto}=toy
     return (
         <tr>
-        <th>{index+1}</th>
+        <th>
+        <div className="avatar">
+    <div className="w-12">
+      <img src={toysPhoto} />
+    </div>
+  </div>
+        </th>
         <td>{sellerName}</td>
         <td>{toysName}</td>
         <td>{subCategory}</td>

@@ -34,7 +34,7 @@ const AllToys = () => {
     {/* head */}
     <thead >
       <tr>
-        <th>Serial NO.</th>
+        <th></th>
         <th>Seller Name</th>
         <th>Toy Name</th>
         <th>Sub-category</th>
@@ -47,7 +47,7 @@ const AllToys = () => {
     {
         toys?.filter((item)=>{
             return search.toLowerCase()===''? item : item.toysName.toLowerCase().includes(search)
-        }).map((toy, i)=><ToyRow key={toy._id} toy={toy} index={i} ></ToyRow>)
+        }).map((toy)=><ToyRow key={toy._id} toy={toy}></ToyRow>)
     }
     </tbody>
   </table>
