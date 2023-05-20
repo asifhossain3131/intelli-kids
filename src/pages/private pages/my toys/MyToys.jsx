@@ -11,7 +11,6 @@ const MyToys = () => {
   const { user } = useContext(AuthContext);
   const [myToys, setMyToys] = useState([]);
   const [sort, setSort] = useState(0);
-  const navigate=useNavigate()
   const navigation=useNavigation()
   if(navigation.state==='loading'){
     return <Spinner></Spinner>
@@ -19,24 +18,12 @@ const MyToys = () => {
 
   useEffect(() => {
     fetch(
-      `https://intelli-kidos-server.vercel.app/mytoys?email=${user?.email}&sort=${sort}`,{
-        method:'GET',
-        headers:{
-            authorization:`bearer ${localStorage.getItem('toy-access-token')}`
-        }
-      }
-    )
+      `https://intelli-kidos-server.vercel.app/mytoys?email=${user?.email}&sort=${sort}`)
       .then((res) => res.json())
       .then((data) => {
-            if(!data.error){
                 setMyToys(data) 
-            }
-            else{
-                navigate('/login')
-            }
-
       });
-  }, [sort,navigate]);
+  }, [sort]);
 
   const handleDeleteToy = (id) => {
     Swal.fire({
