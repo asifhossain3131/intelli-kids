@@ -29,7 +29,7 @@ const CategoryTab = () => {
     }
     return (
       <section className=' mt-20'>
-        <h1 className='text-center font-semibold text-4xl mb-12'>Choose Your Toys By Your <br /> Favorite Categories</h1>
+        <h1 className='text-center font-semibold text-3xl lg:text-5xl mb-12'>Choose Your Toys By Your <br /> Favorite Categories</h1>
           <div className='w-10/12 text-center mx-auto lg:h-[550px] bg-[#F4F3F0]'>
              <Tabs>
     <TabList className='bg-violet-500 font-bold p-4'>
