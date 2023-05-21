@@ -1,3 +1,6 @@
+import { toast } from "react-hot-toast"
+
+
 const getWishList=()=>{
     let wishList={}
     const storedList=localStorage.getItem('wish-list')
@@ -9,5 +12,16 @@ const getWishList=()=>{
 
 const addToLocalStorage=id=>{
     const wishList=getWishList()
-    
+    const added=wishList[id]
+    if(!added){
+        wishList[id]=1
+        localStorage.setItem('wish-list', JSON.stringify(wishList))
+        toast.success('The toy has been added to your wishlist')
+    }
+   
+}
+
+export{
+    getWishList,
+    addToLocalStorage
 }

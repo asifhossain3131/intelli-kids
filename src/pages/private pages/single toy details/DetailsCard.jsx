@@ -1,8 +1,13 @@
 import React from 'react';
 import { FaFacebook, FaHeart, FaInstagram, FaPinterest, FaTwitter } from 'react-icons/fa';
+import { addToLocalStorage } from '../../../utlities/localStorage';
 
 const DetailsCard = ({toy}) => {
-    const{toysName,toysPhoto,toysPrice,toysQuantity,toysRatings}=toy
+    const{_id,toysName,toysPhoto,toysPrice,toysQuantity,toysRatings}=toy
+
+    const handleAddToWishList=id=>{
+      addToLocalStorage(id)
+    }
     return (
         <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col lg:flex-row">
@@ -33,7 +38,7 @@ const DetailsCard = ({toy}) => {
 </div>
 <div>
 <button className="btn rounded-full">Add To Cart</button>
-<button className="btn btn-link font-semibold text-xl text-black"><span className='me-2'>Add To Wishlist</span><FaHeart></FaHeart></button>
+<button onClick={()=>handleAddToWishList(_id)} className="btn btn-link font-semibold text-xl text-black"><span className='me-2'>Add To Wishlist</span><FaHeart></FaHeart></button>
 </div>
 
 <div className='flex items-center gap-4'>
