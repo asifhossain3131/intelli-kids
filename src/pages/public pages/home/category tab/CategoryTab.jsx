@@ -78,7 +78,7 @@ const CategoryTab = () => {
 </TabPanel>
   </Tabs>
 
-  <div className='lg:mx-auto w-1/2 lg:text-center my-12'>
+  <div className='mx-auto lg:w-1/2 lg:text-center my-12'>
 <div className="btn-group">
 {
     pageNumbers.map(pageNumber=>

@@ -14,18 +14,18 @@ const PhotoGallery = () => {
             <p className='text-gray-700'>Have a quick look what our super kids have achived and got to learn through our provided kits and toys</p>
          </div>
 
-         <div className='grid grid-cols-2 lg:grid-cols-4 mx-12 lg:mx-32 gap-4'>
+         <div className='grid grid-cols-1 lg:grid-cols-4 mx-12 lg:mx-32 gap-4'>
             {
                 galleries.map(gallery=>
-                    <div className='overflow-hidden w-48 relative transition duration-200 transform hover:-translate-y-2 rounded shadow-lg hover:shadow-2xl'>
+                    <div className='overflow-hidden lg:w-48 relative transition duration-200 transform hover:-translate-y-2 rounded shadow-lg hover:shadow-2xl'>
                     <img
-                      src={gallery.image}
+                      src={gallery?.image}
                       alt='gallery'
                       className='object-cover w-full h-48 '
                     />
             
                     <div className='bg-black px-6 py-4 bg-opacity-75 opacity-0 hover:opacity-100 text-gray-300 absolute inset-0 transition-opacity duration-200 flex flex-col justify-center items-center'>
-                    <h1 className='text-2xl font-semibold'>{gallery.name}</h1>
+                    <h1 className='text-2xl font-semibold'>{gallery?.name}</h1>
                     </div>
                   </div>
                     )

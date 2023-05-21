@@ -18,6 +18,9 @@ const addToLocalStorage=id=>{
         localStorage.setItem('wish-list', JSON.stringify(wishList))
         toast.success('The toy has been added to your wishlist')
     }
+    else{
+        toast.error('The toy has been already added to your wishlist')
+    }
    
 }
 
