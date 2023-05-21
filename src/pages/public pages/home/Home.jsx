@@ -5,8 +5,10 @@ import Sponsors from './sponsors/Sponsors';
 import Testimonials from './customer review/Testimonials';
 import PhotoGallery from './gallery/PhotoGallery';
 import LatestNews from './latest news/LatestNews';
+import useTitle from '../../../hooks/useTitle';
 
 const Home = () => {
+    useTitle('Home')
         return (
         <>
             <HomeSlider></HomeSlider>

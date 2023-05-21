@@ -67,7 +67,7 @@ toysDescription
     </div>
     </TabPanel>
     <TabPanel>
-      <h2>Any content 3</h2>
+      <h2>content coming soon</h2>
     </TabPanel>
   </Tabs>
         </>

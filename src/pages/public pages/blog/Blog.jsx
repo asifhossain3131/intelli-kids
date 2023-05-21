@@ -3,9 +3,11 @@ import faq from '../../../../public/138566-frequently-asked-question-faq.json'
 import Lottie from "lottie-react";
 import { Link } from 'react-router-dom';
 import { FaBackward } from 'react-icons/fa';
+import useTitle from '../../../hooks/useTitle';
 
 
 const Blog = () => {
+  useTitle('Blogs')
   return (
    <>
       <div className='flex gap-4 justify-center items-center  bg-cyan-500 bg-opacity-75 p-8'>
