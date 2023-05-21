@@ -20,7 +20,7 @@ const LatestNews = () => {
             <div className='grid grid-cols-1 lg:grid-cols-2 gap-8 w-9/12 mx-auto'>
 
                 {/* first card */}
-            <div data-aos="flip-left" className=" card-compact w-96 bg-base-100 shadow-xl">
+            <div data-aos="flip-left" className=" card-compact lg:w-96 bg-base-100 shadow-xl">
   <figure><img src="https://img.freepik.com/free-vector/astronomy-banners-set_98292-2906.jpg?size=626&ext=jpg&ga=GA1.2.663062170.1681230249&semt=ais" alt="Shoes" className='h-[200px] w-full'/></figure>
   <div className="card-body">
     <h2 className="card-title">New Science Toy Enables Kids to Explore the Wonders of Astronomy</h2>
@@ -32,7 +32,7 @@ const LatestNews = () => {
 
                 {/* second card */}
           
-            <div data-aos="flip-right" className=" card-compact  w-96 bg-base-100 shadow-xl">
+            <div data-aos="flip-right" className=" card-compact  lg:w-96 bg-base-100 shadow-xl">
   <figure><img src="https://img.freepik.com/free-photo/schoolgirl-sitting-with-puzzles_23-2147663922.jpg?size=626&ext=jpg&ga=GA1.1.663062170.1681230249&semt=ais" alt="Shoes" className='w-full'/></figure>
   <div className="card-body">
     <h2 className="card-title">Mathematical Puzzle Sets on Toy  Boost Kids' Problem-Solving Skills</h2>
@@ -44,7 +44,7 @@ const LatestNews = () => {
 
                 {/* third card */}
           
-            <div data-aos="flip-up" className=" card-compact w-96 bg-base-100 shadow-xl">
+            <div data-aos="flip-up" className=" card-compact lg:w-96 bg-base-100 shadow-xl">
   <figure><img src="https://img.freepik.com/free-photo/kids-fashion-concept_155003-7062.jpg?size=626&ext=jpg&ga=GA1.1.663062170.1681230249&semt=ais" alt="Shoes" className='h-[200px] w-full'/></figure>
   <div className="card-body">
     <h2 className="card-title">Language Learning Goes Interactive with Cutting-Edge Toy</h2>
@@ -54,7 +54,7 @@ const LatestNews = () => {
   </div>
 </div>
                 {/* fourth card */}
-            <div data-aos="flip-down" className=" card-compact w-96 bg-base-100 shadow-xl">
+            <div data-aos="flip-down" className=" card-compact lg:w-96 bg-base-100 shadow-xl">
   <figure><img src="https://img.freepik.com/free-vector/classroom-scene-with-science-teacher-equipments_1308-37098.jpg?size=626&ext=jpg&ga=GA1.2.663062170.1681230249&semt=ais" alt="Shoes" className='h-[200px] w-full'/></figure>
   <div className="card-body">
     <h2 className="card-title">Scientists to Introduce STEM Kits for Kids</h2>

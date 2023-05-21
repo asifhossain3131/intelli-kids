@@ -79,7 +79,7 @@ const CategoryTab = () => {
   </Tabs>
 
   <div className='mx-auto lg:w-1/2 lg:text-center my-12'>
-<div className="btn-group">
+<div className="btn-group ">
 {
     pageNumbers.map(pageNumber=>
         <button key={pageNumber} onClick={()=>setCurrentPage(pageNumber)} className={currentPage===pageNumber? 'btn btn-active':'btn' }>{pageNumber}</button>
