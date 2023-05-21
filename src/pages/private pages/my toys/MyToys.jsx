@@ -3,8 +3,9 @@ import useTitle from "../../../hooks/useTitle";
 import { AuthContext } from "../../../providers/AuthProvider";
 import MyToysTableRow from "./MyToysTableRow";
 import Swal from "sweetalert2";
-import { useNavigate, useNavigation } from "react-router-dom";
+import { Link, useNavigate, useNavigation } from "react-router-dom";
 import Spinner from "../../../components/Spinner";
+import { FaBackward } from "react-icons/fa";
 
 const MyToys = () => {
   useTitle("My Toys");
@@ -52,19 +53,25 @@ const MyToys = () => {
 
   return (
     <>
-      <div className="text-center">
-        <h1 className="text-4xl font-bold">My Toys are here</h1>
-        <div className="dropdown dropdown-hover">
+     <div className='flex gap-4 justify-center items-center  bg-cyan-500 bg-opacity-75 p-8 mb-4'>
+            <Link to='/'>Home</Link>
+            <FaBackward></FaBackward>
+            <Link to='/addtoys'>Add Toys</Link>
+            <FaBackward></FaBackward>
+            <Link className='text-blue-500 font-semibold'>My Toys</Link>
+         </div>
+      
+        <div className="dropdown dropdown-hover ms-12 mb-20">
   <label tabIndex={0} className="select select-bordered mt-4">Fillter by price</label>
   <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
     <li><button onClick={()=>setSort(1)}>Lower To Higher</button></li>
     <li><button onClick={()=>setSort(-1)}>Higher To Lower</button></li>
   </ul>
 </div>
-      </div>
+    
 
       {/* table starts */}
-      <div className="overflow-x-auto my-12">
+      <div className="overflow-x-auto mb-20">
         <table className="table table-zebra w-full">
           {/* head */}
           <thead>

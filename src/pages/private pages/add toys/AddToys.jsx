@@ -51,6 +51,10 @@ subCategory,
             <div className='flex gap-4 justify-center items-center bg-cyan-500 bg-opacity-75 p-8'>
             <Link to='/'>Home</Link>
             <FaBackward></FaBackward>
+            <Link to='/alltoys'>All Toys</Link>
+            <FaBackward></FaBackward>
+            <Link to='/mytoys'>My Toys</Link>
+            <FaBackward></FaBackward>
             <Link className='text-blue-700 font-semibold'>Add Toys</Link>
          </div>
         <div className="card lg:card w-10/12 mt-16 mb-20 mx-auto bg-[#F4F3F0] shadow-xl">

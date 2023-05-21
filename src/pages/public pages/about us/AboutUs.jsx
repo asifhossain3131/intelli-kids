@@ -1,22 +1,26 @@
 import React from 'react';
+import { FaBackward } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const AboutUs = () => {
     return (
-        <div>
+        <>
+<div className='flex gap-4 justify-center items-center  bg-cyan-500 bg-opacity-75 p-8'>
+<Link to='/'>Home</Link>
+            <FaBackward></FaBackward>
+            <Link to='/alltoys'>All Toys</Link>
+            <FaBackward></FaBackward>
+            <Link to='/mytoys'>My Toys</Link>
+            <FaBackward></FaBackward>
+            <Link to='/addtoys'>Add Toys</Link>
+            <FaBackward></FaBackward>
+            <Link to='/blogs'>Blogs</Link>
+            <FaBackward></FaBackward>
+            <Link className='text-blue-500 font-semibold'>About us</Link>
+         </div>
+  
 
-       <div className='overflow-hidden w-80 relative transition duration-200 transform hover:-translate-y-2 rounded shadow-lg hover:shadow-2xl'>
-        <img
-          src='https://img.freepik.com/free-photo/little-boy-having-idea_23-2149352405.jpg?size=626&ext=jpg&ga=GA1.2.663062170.1681230249&semt=sph'
-          alt='gallery'
-          className='object-cover w-full h-56 lg:h-64 xl:h-80'
-        />
-
-        <div className='bg-black px-6 py-4 bg-opacity-75 opacity-0 hover:opacity-100 text-gray-300 absolute inset-0 transition-opacity duration-200 flex flex-col justify-center items-center'>
-        <h1 className='text-2xl font-semibold'>Hello</h1>
-        </div>
-      </div>
-      
-        </div>
+        </>
     );
 };
 
