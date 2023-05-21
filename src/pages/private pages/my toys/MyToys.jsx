@@ -36,7 +36,9 @@ const MyToys = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://intelli-kidos-server.vercel.app/toys/${id}`)
+        fetch(`https://intelli-kidos-server.vercel.app/toys/${id}`,{
+          method:'DELETE'
+        })
           .then((res) => res.json())
           .then((data) => {
             const remaining = myToys.filter((toy) => toy._id !== id);

@@ -2,6 +2,8 @@ import React, { useContext } from 'react';
 import useTitle from '../../../hooks/useTitle';
 import { AuthContext } from '../../../providers/AuthProvider';
 import { toast } from 'react-hot-toast';
+import { Link } from 'react-router-dom';
+import { FaBackward } from 'react-icons/fa';
 
 const AddToys = () => {
     useTitle('Add Toys')
@@ -46,10 +48,15 @@ subCategory,
     }
     return (
         <div>
-        <div className="card lg:card w-10/12 mx-auto bg-[#F4F3F0] shadow-xl">
+            <div className='flex gap-4 justify-center items-center bg-cyan-500 bg-opacity-75 p-8'>
+            <Link to='/'>Home</Link>
+            <FaBackward></FaBackward>
+            <Link className='text-blue-700 font-semibold'>Add Toys</Link>
+         </div>
+        <div className="card lg:card w-10/12 mt-16 mb-20 mx-auto bg-[#F4F3F0] shadow-xl">
          <div className='text-center mt-8 mb-4 w-1/2 mx-auto'>
-         <h1 className='font-bold text-4xl mb-2'>Add A Toy</h1>
-            <p>Adding a toy always should be a pleasure as it always opens a new unique way for children to learn about science and technology with kits</p>
+         <h1 className='font-semibold text-4xl mb-2'>Add A Toy</h1>
+            <p className='text-gray-600'>Adding a toy always should be a pleasure as it always opens a new unique way for children to learn about science and technology with kits</p>
          </div>
   <div className="card-body">
 <form onSubmit={handleAddToys}>
@@ -115,7 +122,7 @@ subCategory,
         </div>
  </div>
         <div className="form-control mt-6">
-        <input type="submit" value="Add Toy" className='btn btn-purple'/>
+        <input type="submit" value="Add Toy" className='btn bg-violet-500 border-none hover:bg-violet-400'/>
         </div>
 </form>
   </div>

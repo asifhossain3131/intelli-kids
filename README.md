@@ -5,12 +5,11 @@
    * Well designs with multiple react packages and css component library
    * Private routes for only users and navigating to target routes after successful login
    * Facilities for logged in users to post,update or delete own data
-   * 
-   * 
-   *   
-   *    
-   *    
+   * Dynamic paginations are inclued with tab
+   * Conditonal data fetching from database based on user status
+   * Storing wishlist and cart into local storage to remind later
+    
 
 
    ## Live Link
-<!-- Hosted in Netlify -> [BangalrChefs](https://chef-recipe-abecf.web.app/) -->
+Hosted in Firebase -> [IntelliKids](https://intelli-kidos.web.app/)

@@ -13,6 +13,7 @@ import SingleToyDetails from "../pages/private pages/single toy details/SingleTo
 import UpdateToy from "../pages/private pages/my toys/UpdateToy";
 import Blog from "../pages/public pages/blog/Blog";
 import ErrorPage from "../pages/shared/error page/ErrorPage";
+import AboutUs from "../pages/public pages/about us/AboutUs";
 
   const router=createBrowserRouter([
     {
@@ -50,6 +51,10 @@ loader:({params})=>fetch(`https://intelli-kidos-server.vercel.app/toys/${params.
             {
 path:'/blogs',
 element:<Blog></Blog>
+            },
+            {
+path:'/aboutus',
+element:<AboutUs></AboutUs>
             },
             {
                 path:'/login',

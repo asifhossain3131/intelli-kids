@@ -8,11 +8,11 @@ const CategoryTab = () => {
     const[category,setCategory]=useState('Math')
     const [currentPage,setCurrentPage]=useState(0)
     const[itemPerPage,setItemPerPage]=useState(2)
-    const totalPages=Math.ceil(toys.length/itemPerPage)
-    const options=[2,5,10]
+    const[totalToys,setTotalToys]=useState(0)
+    const totalPages=Math.ceil(totalToys/itemPerPage)
 
     const pageNumbers=[...Array(totalPages).keys()]
-
+  
     useEffect(() => {
         const fetchToys = async () => {
         
@@ -23,39 +23,56 @@ const CategoryTab = () => {
         fetchToys();
       }, [category,itemPerPage,currentPage]);
 
-      const handleOnChange=e=>{
-        setItemPerPage(parseInt(e.target.value))
+      useEffect(()=>{
+        const fetchToyNumbers=async()=>{
+          const res=await fetch(`https://intelli-kidos-server.vercel.app/countToys/${category}`)
+          const data=await res.json()
+          setTotalToys(data.toysNumbers)
+        }
+        fetchToyNumbers()
+      },[category])
+
+      const handleSetcategory=category=>{
+        if(category==='Math'){
+          setCategory(category)
+        }
+        else if(category==='Science'){
+          setCategory(category)
+        }
+        else{
+          setCategory(category)
+        }
         setCurrentPage(0)
-    }
+      }
     return (
       <section className=' mt-20'>
         <h1 className='text-center font-semibold text-3xl lg:text-5xl mb-12'>Choose Your Toys By Your <br /> Favorite Categories</h1>
           <div className='w-10/12 text-center mx-auto lg:h-[550px] bg-[#F4F3F0]'>
              <Tabs>
-    <TabList className='bg-violet-500 font-bold p-4'>
-      <Tab onClick={()=>setCategory('Math')}>Math</Tab>
-      <Tab onClick={()=>setCategory('Science')}>Science</Tab>
-      <Tab onClick={()=>setCategory('Language')}>Language</Tab>
+    <TabList className='bg-cyan-500 font-bold p-4'>
+        <Tab onClick={()=>handleSetcategory('Math')}>Math</Tab>
+      <Tab onClick={()=>handleSetcategory('Science')}>Science</Tab>
+      <Tab onClick={()=>handleSetcategory('Language')} >Language</Tab>
     </TabList>
 
 <TabPanel>
 <div className='flex flex-col md:flex-row items-center justify-center gap-4 p-4 lg:p-8'>
 {
-    toys.slice(0,2).map(toy=><CategoryTabCard key={toy._id} toy={toy}></CategoryTabCard>)
+    toys.map(toy=><CategoryTabCard key={toy._id} toy={toy}></CategoryTabCard>)
 }
 </div>
 </TabPanel>
 <TabPanel>
 <div className='flex flex-col md:flex-row items-center justify-center gap-4 p-4 lg:p-8'>
 {
-    toys.slice(0,2).map(toy=><CategoryTabCard key={toy._id} toy={toy}></CategoryTabCard>)
+    toys.map(toy=><CategoryTabCard key={toy._id} toy={toy}></CategoryTabCard>)
 }
 </div>
 </TabPanel>
 <TabPanel>
 <div className='flex flex-col md:flex-row items-center justify-center gap-4 p-4 lg:p-8'>
 {
-    toys.slice(0,2).map(toy=><CategoryTabCard key={toy._id} toy={toy}></CategoryTabCard>)
+    toys.map(toy=><CategoryTabCard key={toy._id} toy={toy}></CategoryTabCard>)
 }
 </div>
 </TabPanel>
@@ -69,13 +86,6 @@ const CategoryTab = () => {
     )
 }
  </div>
- <select className='select select-bordered ms-2' value={itemPerPage} onChange={handleOnChange}>
-{
-    options.map(option=>
-    <option key={option} value={option}>{option}</option>
-    )
-}
-</select>
 </div>
         </div>
       </section>
